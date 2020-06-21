@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 @Component
 @Slf4j
@@ -41,7 +42,7 @@ public class DataInitializer implements CommandLineRunner {
         users.save(TodoAppUser.builder()
             .username("user")
             .password(passwordEncoder.encode("password"))
-            .roles(Arrays.asList("ROLE_USER"))
+            .roles(Collections.singletonList("ROLE_USER"))
             .build()
         );
 

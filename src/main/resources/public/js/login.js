@@ -33,7 +33,7 @@ function sendAndSaveLoginRequest(input) {
                 if (response.token == null) throw new Error();
                 const token = response.token;
                 localStorage.setItem("token", token)
-                alert("Successful login")
+                alert("You logged in")
             } catch (e) {
                 console.log(e)
                 alert("Incorrect username or password")

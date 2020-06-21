@@ -47,11 +47,11 @@ public class TodoController {
 //        return todos.toString();
 //    }
 
-    @RequestMapping(value = "/list", produces = "application/json", method = RequestMethod.POST)
+    @PostMapping("/list")
     public List<Todo> listAllToDos(@RequestBody String status) {
         String requestStatusFieldValue = status.substring(7).toUpperCase();
         if (requestStatusFieldValue.equals("")) {
-            return todoRepository.findAll();
+            return todoRepository.findAndOrderById();
         }
         return todoRepository.findAllByStatusOrderById(Status.valueOf(requestStatusFieldValue));
     }
